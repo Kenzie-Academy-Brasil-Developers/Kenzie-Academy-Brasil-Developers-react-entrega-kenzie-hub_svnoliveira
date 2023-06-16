@@ -43,6 +43,10 @@ export const RegisterForm = () => {
         )
     }
 
+    const isObjEmpty = (object) => {
+        return Object.keys(object).length === 0
+    }
+
     return (
         <StyledForm onSubmit={handleSubmit(submit)} noValidate>
             
@@ -69,7 +73,8 @@ export const RegisterForm = () => {
 
            <Select register={register} errors={errors} />
 
-            <Button color="primary" type="submit">Cadastrar</Button>
+           <Button color={ isObjEmpty(errors)? "primary":"disabled"} 
+            type="submit">Cadastrar</Button>
             <SectionEnd />
         </StyledForm>
     )

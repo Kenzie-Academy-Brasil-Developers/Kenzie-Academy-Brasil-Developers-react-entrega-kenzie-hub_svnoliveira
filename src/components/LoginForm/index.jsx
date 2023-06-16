@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import { Input } from "../Fragments/Input"
 import { formSchema } from "./formSchema"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { atemptLogin } from "../../services/requests"
 import { Loading } from "../Fragments/Loading"
 import { Message } from "../Fragments/Message"
@@ -47,18 +47,25 @@ export const LoginForm = ({ setUser }) => {
         )
     }
 
+    const isObjEmpty = (object) => {
+        return Object.keys(object).length === 0
+    }
+
     return (
         <StyledForm onSubmit={handleSubmit(submit)} noValidate>
             <Title1>Login</Title1>
 
-            <Input register={register} errors={errors} label="Email" saveTag="email" 
+            <Input  register={register} errors={errors} label="Email" saveTag="email" 
             type="email" id="login-email" placeholder="exemplo@email.com"/>
 
             <Input register={register} errors={errors} label="Senha" saveTag="password"
             type="password" id="login-password" placeholder="Senha" />
-            
-            <Button color="primary" type="submit">Entrar</Button>
+
+            <Button color={ isObjEmpty(errors)? "primary":"disabled"} 
+            type="submit">Entrar</Button>
+
             <HeadlineBold>Ainda não possui uma conta?</HeadlineBold>
+            
             <Button color="grey" type="button" ><Link to="/register">Cadastre-se</Link></Button>
             <SectionEnd />
         </StyledForm>
