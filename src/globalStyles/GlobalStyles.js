@@ -45,5 +45,5 @@ export const alignJustifyCenter = css`
 export const positionTopRight = css`
 	position: absolute;
 	right: 5vw;
-    top: 5vh;
+    top: 6vh;
 `

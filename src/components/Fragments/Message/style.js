@@ -29,7 +29,7 @@ export const timerBarDown = keyframes`
 export const StyledMessage = styled.div`
     ${positionTopRight}
     height: 7rem;
-    width: 28.5rem;
+    width: clamp(25rem, 20vw, 28.5rem);
     border-radius: 0.4rem;
     background-color: var(--color-grey-2);
     color: var(--color-grey-0);

@@ -27,7 +27,9 @@ export const HomePage = ({ user, setUser }) => {
             <Navbar>
                 <Button color="black" type="button" onClick={handleLogout}>Sair</Button>
             </Navbar>
-            <Header user={user} />
+            <section>
+                <Header user={user} />
+            </section>
             <main>
                 <div>
                     <Title1>Que pena! Estamos em desenvolvimento :{"("}</Title1>

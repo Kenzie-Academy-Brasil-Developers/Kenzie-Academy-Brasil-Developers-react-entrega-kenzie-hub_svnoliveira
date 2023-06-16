@@ -7,5 +7,5 @@ export const StyledHeaderContainer = styled.div`
     flex-wrap: wrap;
     width: clamp(8rem, 100%, 77.5rem);
     margin: auto;
-    column-gap: 10rem
+    column-gap: 10rem;
 `
