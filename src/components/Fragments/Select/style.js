@@ -27,9 +27,9 @@ export const StyledSelectContainer = styled.div`
 
     p {
         position: absolute;
-        bottom: 9%;
+        bottom: 3%;
         left: 0;
-        color: var(--color-grey-1);
+        color: var(--color-negative);
         z-index: 5;
         font: 400 1.05rem/1.05rem "Inter", sans-serif;
     }

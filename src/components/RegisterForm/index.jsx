@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Select } from "../Fragments/Select"
 import { Input } from "../Fragments/Input"
-import { formSchema } from "./formSchema"
+import { formSchemaRegister } from "./formSchema"
 import { Loading } from "../Fragments/Loading"
 import { useState } from "react"
 import { atemptRegistration } from "../../services/requests"
@@ -20,7 +20,7 @@ export const RegisterForm = () => {
     const navigate = useNavigate()
 
     const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: zodResolver(formSchema),
+        resolver: zodResolver(formSchemaRegister),
     })
 
     const submit = async (formData) => {

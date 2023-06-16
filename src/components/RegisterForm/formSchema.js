@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const formSchema = z.object({
+export const formSchemaRegister = z.object({
     name: z.string().min(1, "O nome é obrigatório"),
     email: z.string().min(3, "O email é obrigatório")
     .email("O email é obrigatório"),

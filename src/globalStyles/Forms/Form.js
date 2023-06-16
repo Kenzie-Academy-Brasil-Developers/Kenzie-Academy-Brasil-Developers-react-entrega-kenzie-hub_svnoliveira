@@ -19,4 +19,8 @@ export const StyledForm = styled.form`
         color: var(--color-grey-1);
         align-self: center;
     }
+
+    p {
+        color: var(--color-negative);
+    }
 `
