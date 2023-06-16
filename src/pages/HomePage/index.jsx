@@ -5,6 +5,7 @@ import { Button } from "../../globalStyles/Buttons/Button"
 import { StyledDashboard } from "./style"
 import { Title1 } from "../../globalStyles/Typography/Title1"
 import { Title2 } from "../../globalStyles/Typography/Title2"
+import { useEffect } from "react"
 
 export const HomePage = ({ user, setUser }) => {
     const navigate = useNavigate()
@@ -14,6 +15,12 @@ export const HomePage = ({ user, setUser }) => {
         localStorage.clear()
         navigate("/login")
     }
+
+    useEffect(() => {
+        if (!localStorage.getItem("@USERID")) {
+            navigate("/login")
+        }
+    }, [])
 
     return (
         <StyledDashboard id="dashboard">
