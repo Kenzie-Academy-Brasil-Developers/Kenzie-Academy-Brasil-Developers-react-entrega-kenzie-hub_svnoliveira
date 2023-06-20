@@ -31,7 +31,7 @@ export const RegisterForm = () => {
             setIsLoadingRegister(false)
             setIsMessage("")
             result? navigate("/login") : null
-        }, "4000")
+        }, "2000")
     }
 
     if (isLoadingRegister){

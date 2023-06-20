@@ -3,7 +3,7 @@ import { LoginForm } from "../../components/LoginForm"
 import { useEffect } from "react"
 import { Navbar } from "../../components/Navbar"
 
-export const LoginPage = ({setUser}) => {
+export const LoginPage = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export const LoginPage = ({setUser}) => {
         <>
             <Navbar position="center"/>
             <main>
-                <LoginForm setUser={setUser} />
+                <LoginForm />
             </main>
         </>
     )

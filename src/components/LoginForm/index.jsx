@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import { Input } from "../Fragments/Input"
 import { formSchemaLogin } from "./formSchema"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { atemptLogin } from "../../services/requests"
 import { Loading } from "../Fragments/Loading"
 import { Message } from "../Fragments/Message"
@@ -12,11 +12,14 @@ import { StyledForm } from "../../globalStyles/Forms/Form"
 import { Title1 } from "../../globalStyles/Typography/Title1"
 import { HeadlineBold } from "../../globalStyles/Typography/HeadlineBold"
 import { SectionEnd } from "../../globalStyles/SectionEnd"
+import { UserContext } from "../../providers/UsersContext"
 
-export const LoginForm = ({ setUser }) => {
+export const LoginForm = () => {
     const [isLoadingLogin, setIsLoadingLogin] = useState(false)
     const [isMessageLogin, setIsMessageLogin] = useState("")
     const navigate = useNavigate()
+
+    const { setUser } = useContext(UserContext)
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(formSchemaLogin),

@@ -5,9 +5,13 @@ import { Button } from "../../globalStyles/Buttons/Button"
 import { StyledDashboard } from "./style"
 import { Title1 } from "../../globalStyles/Typography/Title1"
 import { Title2 } from "../../globalStyles/Typography/Title2"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
+import { UserContext } from "../../providers/UsersContext"
 
-export const HomePage = ({ user, setUser }) => {
+export const HomePage = () => {
+    const { setUser, user } = useContext(UserContext)
+
+
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -28,7 +32,7 @@ export const HomePage = ({ user, setUser }) => {
                 <Button color="black" type="button" onClick={handleLogout}>Sair</Button>
             </Navbar>
             <section>
-                <Header user={user} />
+                <Header />
             </section>
             <main>
                 <div>
