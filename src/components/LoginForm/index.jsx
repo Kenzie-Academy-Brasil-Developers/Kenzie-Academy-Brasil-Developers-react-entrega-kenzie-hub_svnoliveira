@@ -24,25 +24,25 @@ export const LoginForm = () => {
 
     return (
         <>
-        {isLoading? <Loading /> :
-        <StyledForm onSubmit={handleSubmit(submitLogin)} noValidate>
-            <Title1>Login</Title1>
+            {isLoading ? <Loading /> :
+                <StyledForm onSubmit={handleSubmit(submitLogin)} noValidate>
+                    <Title1>Login</Title1>
 
-            <Input  register={register} errors={errors} label="Email" saveTag="email" 
-            type="email" id="login-email" placeholder="exemplo@email.com"/>
+                    <Input register={register} errors={errors} label="Email" saveTag="email"
+                        type="email" id="login-email" placeholder="exemplo@email.com" />
 
-            <Input register={register} errors={errors} label="Senha" saveTag="password"
-            type="password" id="login-password" placeholder="Senha" />
+                    <Input register={register} errors={errors} label="Senha" saveTag="password"
+                        type="password" id="login-password" placeholder="Senha" />
 
-            <Button color={ isObjEmpty(errors)? "primary":"disabled"} 
-            type="submit">Entrar</Button>
+                    <Button color={isObjEmpty(errors) ? "primary" : "disabled"}
+                        type="submit">Entrar</Button>
 
-            <HeadlineBold>Ainda não possui uma conta?</HeadlineBold>
-            
-            <Button color="grey" type="button" ><Link to="/register">Cadastre-se</Link></Button>
-            <SectionEnd />
-        </StyledForm>}
-        {isMessage? <Message />: null}
+                    <HeadlineBold>Ainda não possui uma conta?</HeadlineBold>
+
+                    <Button color="grey" type="button" ><Link to="/register">Cadastre-se</Link></Button>
+                    <SectionEnd />
+                </StyledForm>}
+            {isMessage ? <Message /> : null}
         </>
     )
 }

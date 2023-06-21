@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { atemptLogin } from "../services/requests";
+import { atemptLogin, atemptRegistration } from "../services/requests";
 
 export const UserContext = createContext({})
 
@@ -10,6 +10,19 @@ export const UserProvider = ({children}) => {
     const [isMessage, setIsMessage] = useState("")
 
     const navigate = useNavigate()
+
+    //register
+
+    const submitRegistration = async (formData) => {
+        setIsLoading(true)
+        const result = await atemptRegistration(formData)
+        setIsMessage(result? "Conta criada com sucesso!": "Ops! Algo deu errado")
+        setTimeout(() => {
+            setIsLoading(false)
+            setIsMessage("")
+            result? navigate("/login") : null
+        }, "2000")
+    }
     
     //login
     
@@ -38,9 +51,8 @@ export const UserProvider = ({children}) => {
     }
 
     return(
-        <UserContext.Provider value={{ user, setUser, isLoading, isMessage, submitLogin, handleLogout }}>
+        <UserContext.Provider value={{ user, setUser, isLoading, isMessage, submitLogin, handleLogout, submitRegistration }}>
             {children}
         </UserContext.Provider>
     )
-
 }
