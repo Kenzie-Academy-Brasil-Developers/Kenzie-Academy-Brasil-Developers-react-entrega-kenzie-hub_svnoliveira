@@ -1,24 +1,15 @@
 import { Header } from "../../components/Header"
 import { Navbar } from "../../components/Navbar"
-import { useNavigate } from "react-router-dom"
 import { Button } from "../../globalStyles/Buttons/Button"
 import { StyledDashboard } from "./style"
 import { Title1 } from "../../globalStyles/Typography/Title1"
 import { Title2 } from "../../globalStyles/Typography/Title2"
 import { useContext, useEffect } from "react"
 import { UserContext } from "../../providers/UsersContext"
+import { Message } from "../../components/Fragments/Message"
 
 export const HomePage = () => {
-    const { setUser, user } = useContext(UserContext)
-
-
-    const navigate = useNavigate()
-
-    const handleLogout = () => {
-        setUser(null)
-        localStorage.clear()
-        navigate("/login")
-    }
+    const { isMessage, handleLogout } = useContext(UserContext)
 
     useEffect(() => {
         if (!localStorage.getItem("@USERID")) {
@@ -27,6 +18,7 @@ export const HomePage = () => {
     }, [])
 
     return (
+        <>
         <StyledDashboard id="dashboard">
             <Navbar>
                 <Button color="black" type="button" onClick={handleLogout}>Sair</Button>
@@ -41,5 +33,7 @@ export const HomePage = () => {
                 </div>
             </main>
         </StyledDashboard>
+        {isMessage? <Message />: null}
+        </>
     )
 }
