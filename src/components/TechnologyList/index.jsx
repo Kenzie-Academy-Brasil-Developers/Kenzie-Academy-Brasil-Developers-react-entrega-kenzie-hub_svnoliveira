@@ -5,10 +5,11 @@ import { UserContext } from "../../providers/UsersContext"
 import { getTechnologiesByID } from "../../services/requests"
 import { Loading } from "../Fragments/Loading"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
+import { TechnologyRegisterModal } from "../TechnologyRegisterModal"
 
 export const TechnologyList = () => {
 
-    const { technologyList, setTechnologyList } = useContext(TechnologiesContext)
+    const { technologyList, setTechnologyList, setIsModal, isModal } = useContext(TechnologiesContext)
     const { user, setIsLoading, isLoading } = useContext(UserContext)
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export const TechnologyList = () => {
         <section>
             <header>
                 <Title1>Tecnologias</Title1>
-                <Button color="black">+</Button>
+                <Button color="black" onClick={() => {setIsModal(true)}}>+</Button>
             </header>
             <ul>
                 {isLoading ? <Loading /> :
@@ -40,8 +41,8 @@ export const TechnologyList = () => {
                         }
                     )
                 }
-
             </ul>
+            { isModal? <TechnologyRegisterModal /> : null }
         </section>
     )
 }
