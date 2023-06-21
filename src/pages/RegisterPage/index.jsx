@@ -1,12 +1,14 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { RegisterForm } from "../../components/RegisterForm"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Navbar } from "../../components/Navbar"
 import { Button } from "../../globalStyles/Buttons/Button"
+import { UserContext } from "../../providers/UsersContext"
 
 
 export const RegisterPage = () => {
-    const navigate = useNavigate()
+    
+    const { navigate } = useContext(UserContext)
 
     useEffect(() => {
         if (localStorage.getItem("@USERID")) {

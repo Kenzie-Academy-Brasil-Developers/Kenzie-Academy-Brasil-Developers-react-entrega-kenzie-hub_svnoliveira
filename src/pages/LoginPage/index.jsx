@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router-dom"
 import { LoginForm } from "../../components/LoginForm"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Navbar } from "../../components/Navbar"
+import { UserContext } from "../../providers/UsersContext"
 
 export const LoginPage = () => {
-    const navigate = useNavigate()
+    
+    const { navigate } = useContext(UserContext)
 
     useEffect(() => {
         if (localStorage.getItem("@USERID")) {

@@ -7,9 +7,10 @@ import { Title2 } from "../../globalStyles/Typography/Title2"
 import { useContext, useEffect } from "react"
 import { UserContext } from "../../providers/UsersContext"
 import { Message } from "../../components/Fragments/Message"
+import { TechnologyList } from "../../components/TechnologyList"
 
 export const HomePage = () => {
-    const { isMessage, handleLogout } = useContext(UserContext)
+    const { isMessage, handleLogout, navigate } = useContext(UserContext)
 
     useEffect(() => {
         if (!localStorage.getItem("@USERID")) {
@@ -27,10 +28,7 @@ export const HomePage = () => {
                     <Header />
                 </section>
                 <main>
-                    <div>
-                        <Title1>Que pena! Estamos em desenvolvimento :{"("}</Title1>
-                        <Title2>Nossa aplicação está em desenvolvimento, em breve teremos novidades</Title2>
-                    </div>
+                    <TechnologyList />
                 </main>
             </StyledDashboard>
             {isMessage ? <Message /> : null}

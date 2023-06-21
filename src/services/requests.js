@@ -25,3 +25,12 @@ export const atemptLogin = async (userInfo) => {
         return false
     }
 }
+
+export const getTechnologiesByID = async (userID) => {
+    try {
+        const { data } = await api.get(`/users/${userID}`)
+        return data.techs
+    } catch (error) {
+        return false
+    }
+}
