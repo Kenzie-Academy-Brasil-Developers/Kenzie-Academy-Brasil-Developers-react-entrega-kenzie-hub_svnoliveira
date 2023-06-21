@@ -4,11 +4,11 @@ import { Title1 } from "../../globalStyles/Typography/Title1"
 import { UserContext } from "../../providers/UsersContext"
 import { getTechnologiesByID } from "../../services/requests"
 import { Loading } from "../Fragments/Loading"
+import { TechnologiesContext } from "../../providers/TechnologiesContext"
 
 export const TechnologyList = () => {
 
-    const [technologyList, setTechnologyList] = useState([])
-
+    const { technologyList, setTechnologyList } = useContext(TechnologiesContext)
     const { user, setIsLoading, isLoading } = useContext(UserContext)
 
     useEffect(() => {
