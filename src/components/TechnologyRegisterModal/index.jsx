@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
-import { Input } from "../Fragments/Input"
+import { TechnologyRegisterForm } from "../TechnologyRegisterForm"
 
 export const TechnologyRegisterModal = () => {
 
@@ -40,7 +40,7 @@ export const TechnologyRegisterModal = () => {
                 <h2>Cadastrar Tecnologia</h2>
                 <button onClick={() => {setIsModal(false)}}>x</button>
                 </div>
-                <Input />
+                <TechnologyRegisterForm />
             </div>
         </div>
     )
