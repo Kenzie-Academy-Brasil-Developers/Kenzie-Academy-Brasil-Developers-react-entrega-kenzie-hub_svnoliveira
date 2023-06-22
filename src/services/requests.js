@@ -47,3 +47,19 @@ export const atemptTechRegistration = async ( token, formData ) => {
         return false
     }
 }
+
+export const atemptTechEdit = async (token, techId, level) => {
+    try {
+        const { data } = await api.put(`/users/techs/${techId}`, {
+            status: level
+        }, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+
+        return data
+    } catch (error) {
+        return false
+    }
+}
