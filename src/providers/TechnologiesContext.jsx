@@ -9,7 +9,10 @@ export const TechnologiesProvider = ({children}) => {
 
     const [ technologyList, setTechnologyList ] = useState([])
     const [ isModal, setIsModal ] = useState(false)
+    const [ isEditModal, setIsEditModal ] = useState(false)
+    const [ clickedCard, setClickedCard ] = useState("")
 
+    //register technology
     const submitRegistration = async (formData) => {
         setIsLoading(true)
         const result = await atemptTechRegistration( token, formData )
@@ -26,9 +29,22 @@ export const TechnologiesProvider = ({children}) => {
         }, "2000")
     }
 
+    const handleCardClick = (cardId) => {
+        
+        setIsEditModal(true)
+        console.log(cardId)
+        setClickedCard(cardId)
+    }
+
     return(
-        <TechnologiesContext.Provider value={{ technologyList, setTechnologyList, isModal, setIsModal, submitRegistration, isLoading, isMessage }}>
+        <TechnologiesContext.Provider value={{ 
+            technologyList, setTechnologyList, isModal, 
+            setIsModal, submitRegistration, isLoading, 
+            isMessage, isEditModal, setIsEditModal,
+            clickedCard, setClickedCard, handleCardClick }}>
+
             {children}
+
         </TechnologiesContext.Provider>
     )
 }
