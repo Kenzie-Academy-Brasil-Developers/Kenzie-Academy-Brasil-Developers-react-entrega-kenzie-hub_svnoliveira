@@ -1,8 +1,7 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { Button } from "../../globalStyles/Buttons/Button"
 import { Title1 } from "../../globalStyles/Typography/Title1"
 import { UserContext } from "../../providers/UsersContext"
-import { getTechnologiesByID } from "../../services/requests"
 import { Loading } from "../Fragments/Loading"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
 import { TechnologyRegisterModal } from "../TechnologyRegisterModal"
@@ -10,23 +9,13 @@ import { TechnologyEditModal } from "../TechnologyEditModal"
 import { TechnologyCard } from "./style"
 
 export const TechnologyList = () => {
-
+    
     const { 
-        technologyList, setTechnologyList, setIsModal, 
-        isModal, isEditModal, handleCardClick
+        setIsModal, isModal, isEditModal, handleCardClick
     } = useContext(TechnologiesContext)
 
-    const { user, setIsLoading, isLoading } = useContext(UserContext)
+    const { isLoading, technologyList } = useContext(UserContext)
 
-    useEffect(() => {
-        const getTechnologyList = async () => {
-            setIsLoading(true)
-            const newList = await getTechnologiesByID(user.id)
-            setIsLoading(false)
-            setTechnologyList(newList)
-        }
-        getTechnologyList()
-    }, [])
 
     return (
         <section>

@@ -5,9 +5,10 @@ import { atemptTechEdit, atemptTechRegistration, atemptTechRemoval } from "../se
 export const TechnologiesContext = createContext({})
 
 export const TechnologiesProvider = ({ children }) => {
-    const { token, isLoading, setIsLoading, isMessage, setIsMessage } = useContext(UserContext)
-
-    const [technologyList, setTechnologyList] = useState([])
+    const { token, isLoading, setIsLoading, 
+        isMessage, setIsMessage, technologyList, 
+        setTechnologyList } = useContext(UserContext)
+  
     const [isModal, setIsModal] = useState(false)
     const [isEditModal, setIsEditModal] = useState(false)
     const [clickedCard, setClickedCard] = useState("")
@@ -89,8 +90,7 @@ export const TechnologiesProvider = ({ children }) => {
 
     return (
         <TechnologiesContext.Provider value={{
-            technologyList, setTechnologyList, isModal,
-            setIsModal, submitRegistration, isLoading,
+            isModal,setIsModal, submitRegistration, isLoading,
             isMessage, isEditModal, setIsEditModal,
             clickedCard, setClickedCard, handleCardClick,
             getCurrentTechNameById, submitEdit, handleRemoveButton

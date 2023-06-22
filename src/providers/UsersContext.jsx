@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { atemptLogin, atemptRegistration } from "../services/requests";
+import { atemptLogin, atemptRegistration, getLoggedUser, getTechnologiesByID } from "../services/requests";
 
 export const UserContext = createContext({})
 
@@ -8,10 +8,27 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [isMessage, setIsMessage] = useState("")
+    const [technologyList, setTechnologyList] = useState([])
 
     const navigate = useNavigate()
     const token = JSON.parse(localStorage.getItem('@TOKEN'))
-    
+
+
+    useEffect(()=> {
+        const routeProtection = async () => {
+            if (token){
+                setIsLoading(true)
+                const loggedUser = await getLoggedUser(token)
+                const newList = await getTechnologiesByID(loggedUser.id)
+                setIsLoading(false)
+                setTechnologyList(newList)
+                setUser(loggedUser)
+                // console.log(user)
+            }
+        }
+        routeProtection()
+    },[])
+
     //register
 
     const submitRegistration = async (formData) => {
@@ -52,7 +69,9 @@ export const UserProvider = ({children}) => {
     }
 
     return(
-        <UserContext.Provider value={{ user, setUser, token, isLoading, setIsLoading, isMessage, setIsMessage, submitLogin, handleLogout, submitRegistration, navigate }}>
+        <UserContext.Provider value={{ user, setUser, token, isLoading, 
+        setIsLoading, isMessage, setIsMessage, submitLogin, handleLogout, 
+        submitRegistration, navigate, technologyList, setTechnologyList }}>
             {children}
         </UserContext.Provider>
     )

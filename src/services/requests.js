@@ -77,3 +77,16 @@ export const atemptTechRemoval = async ( token, techId) => {
         return false
     }
 }
+
+export const getLoggedUser = async ( token ) => {
+    try {
+        const { data } = await api.get('/profile', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        return data
+    } catch (error) {
+        return false
+    }
+}
