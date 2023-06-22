@@ -4,7 +4,7 @@ import { RoutesMain } from "./routes/RoutesMain"
 import { SectionEnd } from "./globalStyles/SectionEnd"
 import { useContext } from "react"
 import { UserContext } from "./providers/UsersContext"
-import { Loading } from "./components/Fragments/Loading"
+import { PageLoading } from "./components/Fragments/PageLoading"
 
 
 export const App =() => {
@@ -14,7 +14,7 @@ export const App =() => {
     <>
     <Reset />
     <GlobalStyles />
-    {loadingPage? <Loading /> : <RoutesMain />}
+    {loadingPage? <PageLoading /> : <RoutesMain />}
     <SectionEnd />
     </>
   )
