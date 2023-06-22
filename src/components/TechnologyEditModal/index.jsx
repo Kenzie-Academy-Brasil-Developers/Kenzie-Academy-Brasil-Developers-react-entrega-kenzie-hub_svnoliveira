@@ -1,6 +1,8 @@
 import { useContext, useEffect, useRef } from "react"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
 import { TechnologyEditForm } from "../TechnologyEditForm"
+import { ModalController } from "../../globalStyles/Modals/Modal"
+
 
 export const TechnologyEditModal = () => {
 
@@ -34,14 +36,14 @@ export const TechnologyEditModal = () => {
     })
 
     return (
-        <div role="dialog">
+        <ModalController role="dialog">
             <div ref={editModalRef}>
                 <div>
-                <h2>Tecnologia Detalhes</h2>
-                <button onClick={() => {setIsEditModal(false)}}>x</button>
+                    <h2>Tecnologia Detalhes</h2>
+                    <button onClick={() => { setIsEditModal(false) }}>x</button>
                 </div>
                 <TechnologyEditForm />
             </div>
-        </div>
+        </ModalController>
     )
 }

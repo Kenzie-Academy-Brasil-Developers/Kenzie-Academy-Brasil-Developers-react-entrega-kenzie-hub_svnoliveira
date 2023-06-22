@@ -1,6 +1,9 @@
 import { useContext, useEffect, useRef } from "react"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
 import { TechnologyRegisterForm } from "../TechnologyRegisterForm"
+import { ModalController } from "../../globalStyles/Modals/Modal"
+import { Title3 } from "../../globalStyles/Typography/Title3"
+
 
 export const TechnologyRegisterModal = () => {
 
@@ -34,14 +37,14 @@ export const TechnologyRegisterModal = () => {
     })
 
     return (
-        <div role="dialog">
+        <ModalController role="dialog">
             <div ref={modalRef}>
                 <div>
-                <h2>Cadastrar Tecnologia</h2>
-                <button onClick={() => {setIsModal(false)}}>x</button>
+                    <Title3>Cadastrar Tecnologia</Title3>
+                    <button onClick={() => { setIsModal(false) }}>X</button>
                 </div>
                 <TechnologyRegisterForm />
             </div>
-        </div>
+        </ModalController>
     )
 }

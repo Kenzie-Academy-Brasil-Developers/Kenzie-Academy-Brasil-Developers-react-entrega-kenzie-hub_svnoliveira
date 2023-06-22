@@ -38,8 +38,8 @@ export const TechnologyList = () => {
                     )
                 }
             </ul>
-            { isModal? <TechnologyRegisterModal /> : null }
             { isEditModal? <TechnologyEditModal /> : null }
+            { isModal? <TechnologyRegisterModal /> : null }
         </StyledTechSection>
     )
 }
