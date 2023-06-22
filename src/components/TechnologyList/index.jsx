@@ -1,12 +1,13 @@
 import { useContext } from "react"
 import { Button } from "../../globalStyles/Buttons/Button"
-import { Title1 } from "../../globalStyles/Typography/Title1"
+import { Title2 } from "../../globalStyles/Typography/Title2"
 import { UserContext } from "../../providers/UsersContext"
 import { Loading } from "../Fragments/Loading"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
 import { TechnologyRegisterModal } from "../TechnologyRegisterModal"
 import { TechnologyEditModal } from "../TechnologyEditModal"
-import { TechnologyCard } from "./style"
+import { TechnologyCard } from "../../globalStyles/Cards/TechnologyCard"
+import { StyledTechSection } from "./style"
 
 export const TechnologyList = () => {
     
@@ -18,9 +19,9 @@ export const TechnologyList = () => {
 
 
     return (
-        <section>
+        <StyledTechSection>
             <header>
-                <Title1>Tecnologias</Title1>
+                <Title2>Tecnologias</Title2>
                 <Button color="black" onClick={() => {setIsModal(true)}}>+</Button>
             </header>
             <ul>
@@ -39,6 +40,6 @@ export const TechnologyList = () => {
             </ul>
             { isModal? <TechnologyRegisterModal /> : null }
             { isEditModal? <TechnologyEditModal /> : null }
-        </section>
+        </StyledTechSection>
     )
 }
