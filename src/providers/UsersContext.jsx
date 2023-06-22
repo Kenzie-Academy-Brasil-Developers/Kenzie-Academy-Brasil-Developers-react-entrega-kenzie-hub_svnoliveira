@@ -56,6 +56,7 @@ export const UserProvider = ({children}) => {
             setUser(result.user)
             localStorage.setItem("@TOKEN", JSON.stringify(result.token))
             localStorage.setItem("@USERID", JSON.stringify(result.user.id))
+            setTechnologyList(result.user.techs)
             navigate("/home")
         }
         setTimeout(() => {
