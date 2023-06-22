@@ -23,6 +23,7 @@ export const StyledDashboard = styled.div`
         display: flex;
         flex-direction: column;
         height: 100%;
+        width: 100%;
         padding-top: 3.7rem;
         gap: 2.5rem;
     }

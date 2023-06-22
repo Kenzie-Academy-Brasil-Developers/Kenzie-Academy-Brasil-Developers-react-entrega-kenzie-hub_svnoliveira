@@ -24,7 +24,7 @@ export const ModalController = styled.div`
         flex-direction: column;
     }
 
-    > div > div {
+    > div > .modal-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -35,7 +35,7 @@ export const ModalController = styled.div`
         padding-right: clamp(0rem, 1.5vw, 2.2rem);
     }
 
-    > div > div > button {
+    > div > .modal-header > button {
         font-size: 2rem;
         background-color: var(--color-grey-2);
         color: var(--color-grey-1);

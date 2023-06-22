@@ -38,7 +38,7 @@ export const TechnologyEditModal = () => {
     return (
         <ModalController role="dialog">
             <div ref={editModalRef}>
-                <div>
+                <div className="modal-header">
                     <h2>Tecnologia Detalhes</h2>
                     <button onClick={() => { setIsEditModal(false) }}>x</button>
                 </div>

@@ -26,7 +26,6 @@ export const UserProvider = ({children}) => {
             setTechnologyList(newList)
             setUser(loggedUser)
             navigate(currentPath)
-            console.log(user)
         }
 
         if (token) { loadUser() }

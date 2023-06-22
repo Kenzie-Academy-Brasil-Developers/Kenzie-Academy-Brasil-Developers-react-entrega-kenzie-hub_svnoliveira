@@ -39,7 +39,7 @@ export const TechnologyRegisterModal = () => {
     return (
         <ModalController role="dialog">
             <div ref={modalRef}>
-                <div>
+                <div className="modal-header">
                     <Title3>Cadastrar Tecnologia</Title3>
                     <button onClick={() => { setIsModal(false) }}>X</button>
                 </div>
