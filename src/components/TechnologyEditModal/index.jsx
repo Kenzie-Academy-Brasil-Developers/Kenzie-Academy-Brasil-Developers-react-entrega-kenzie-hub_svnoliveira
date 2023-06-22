@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from "react"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
+import { TechnologyEditForm } from "../TechnologyEditForm"
 
 export const TechnologyEditModal = () => {
 
@@ -39,7 +40,7 @@ export const TechnologyEditModal = () => {
                 <h2>Tecnologia Detalhes</h2>
                 <button onClick={() => {setIsEditModal(false)}}>x</button>
                 </div>
-                {/* <TechnologyEditForm /> */} <h1>form</h1>
+                <TechnologyEditForm />
             </div>
         </div>
     )

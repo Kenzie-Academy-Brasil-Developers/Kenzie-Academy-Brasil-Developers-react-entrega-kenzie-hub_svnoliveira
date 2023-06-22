@@ -29,11 +29,27 @@ export const TechnologiesProvider = ({children}) => {
         }, "2000")
     }
 
+
+    //edit technology
     const handleCardClick = (cardId) => {
         
         setIsEditModal(true)
-        console.log(cardId)
         setClickedCard(cardId)
+    }
+
+    const getCurrentTechNameById = (id) => {
+        
+        let techName = ""
+        technologyList.map(tech => {
+            if(tech.id === id) {
+                techName = tech.title
+            }
+        })
+        return techName
+    }
+
+    const submitEdit = async (formData) => {
+        console.log(formData)
     }
 
     return(
@@ -41,7 +57,8 @@ export const TechnologiesProvider = ({children}) => {
             technologyList, setTechnologyList, isModal, 
             setIsModal, submitRegistration, isLoading, 
             isMessage, isEditModal, setIsEditModal,
-            clickedCard, setClickedCard, handleCardClick }}>
+            clickedCard, setClickedCard, handleCardClick,
+            getCurrentTechNameById, submitEdit }}>
 
             {children}
 
