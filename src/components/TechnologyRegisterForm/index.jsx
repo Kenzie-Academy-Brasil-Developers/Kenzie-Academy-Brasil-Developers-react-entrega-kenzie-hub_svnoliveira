@@ -8,6 +8,7 @@ import { useContext } from "react"
 import { TechnologiesContext } from "../../providers/TechnologiesContext"
 import { isObjEmpty } from "../../services/utilities"
 import { SelectStatus } from "../Fragments/SelectStatus"
+import { Loading } from "../Fragments/Loading"
 
 export const TechnologyRegisterForm = () => {
 
@@ -15,15 +16,22 @@ export const TechnologyRegisterForm = () => {
         resolver: zodResolver(formSchemaTechRegister)
     })
 
-    const { submitRegistration } = useContext(TechnologiesContext)
+    const { submitRegistration, isLoading } = useContext(TechnologiesContext)
 
     return (
-        <StyledForm onSubmit={handleSubmit(submitRegistration)} noValidate>
-            <Input register={register} errors={errors} label="Nome" saveTag="title"
-                type="text" id="tech-register-name" placeholder="Digite o nome da tecnologia" />
-            <SelectStatus register={register} errors={errors} />
-            <Button color={isObjEmpty(errors) ? "primary" : "disabled"}
-                type="submit">Cadastrar Tecnologia</Button>
-        </StyledForm>
+        <>
+            {isLoading ? <Loading /> :
+                <StyledForm onSubmit={handleSubmit(submitRegistration)} noValidate>
+
+                    <Input register={register} errors={errors} label="Nome" saveTag="title"
+                        type="text" id="tech-register-name" placeholder="Digite o nome da tecnologia" />
+
+                    <SelectStatus register={register} errors={errors} />
+
+                    <Button color={isObjEmpty(errors) ? "primary" : "disabled"}
+                        type="submit">Cadastrar Tecnologia</Button>
+
+                </StyledForm>}
+        </>
     )
 }

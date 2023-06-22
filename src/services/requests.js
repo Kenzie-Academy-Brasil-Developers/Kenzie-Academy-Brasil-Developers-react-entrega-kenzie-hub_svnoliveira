@@ -34,3 +34,16 @@ export const getTechnologiesByID = async (userID) => {
         return false
     }
 }
+
+export const atemptTechRegistration = async ( token, formData ) => {
+    try {
+        const { data } = await api.post('/users/techs', formData, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        return data
+    } catch (error) {
+        return false
+    }
+}

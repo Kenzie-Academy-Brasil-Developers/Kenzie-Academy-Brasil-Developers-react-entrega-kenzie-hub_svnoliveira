@@ -29,6 +29,7 @@ export const TechnologyList = () => {
                 <Button color="black" onClick={() => {setIsModal(true)}}>+</Button>
             </header>
             <ul>
+                {console.log(technologyList)}
                 {isLoading ? <Loading /> :
                     technologyList.length === 0 ? <h1>Nenhuma Tecnologia cadastrada</h1> :
                         technologyList.map(({ id, title, status }) => {

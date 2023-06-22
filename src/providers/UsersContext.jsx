@@ -10,7 +10,8 @@ export const UserProvider = ({children}) => {
     const [isMessage, setIsMessage] = useState("")
 
     const navigate = useNavigate()
-
+    const token = JSON.parse(localStorage.getItem('@TOKEN'))
+    
     //register
 
     const submitRegistration = async (formData) => {
@@ -51,7 +52,7 @@ export const UserProvider = ({children}) => {
     }
 
     return(
-        <UserContext.Provider value={{ user, setUser, isLoading, setIsLoading, isMessage, submitLogin, handleLogout, submitRegistration, navigate }}>
+        <UserContext.Provider value={{ user, setUser, token, isLoading, setIsLoading, isMessage, setIsMessage, submitLogin, handleLogout, submitRegistration, navigate }}>
             {children}
         </UserContext.Provider>
     )
