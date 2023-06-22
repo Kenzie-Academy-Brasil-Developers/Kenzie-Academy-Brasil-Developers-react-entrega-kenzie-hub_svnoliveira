@@ -63,3 +63,17 @@ export const atemptTechEdit = async (token, techId, level) => {
         return false
     }
 }
+
+export const atemptTechRemoval = async ( token, techId) => {
+    try {
+        await api.delete(`/users/techs/${techId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+
+        return true
+    } catch (error) {
+        return false
+    }
+}

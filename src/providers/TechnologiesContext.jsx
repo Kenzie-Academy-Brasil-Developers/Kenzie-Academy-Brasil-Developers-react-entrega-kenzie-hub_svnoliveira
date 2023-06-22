@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { UserContext } from "../providers/UsersContext"
-import { atemptTechEdit, atemptTechRegistration } from "../services/requests";
+import { atemptTechEdit, atemptTechRegistration, atemptTechRemoval } from "../services/requests";
 
 export const TechnologiesContext = createContext({})
 
@@ -68,9 +68,23 @@ export const TechnologiesProvider = ({ children }) => {
             setIsMessage("Erro ao modificar o status")
         }
         setIsLoading(false)
+        setIsEditModal(false)
         setTimeout(() => {
             setIsMessage("")
         }, "2000")
+    }
+
+    const handleRemoveButton = async () => {
+        const result = await atemptTechRemoval( token, clickedCard)
+
+        if (result){
+            setIsEditModal(false)
+            setTechnologyList(technologyList.filter(currentTech => currentTech.id !== clickedCard))
+            setIsMessage("Excluído com sucesso")
+            setTimeout(() => {
+                setIsMessage("")
+            }, 1000);
+        }
     }
 
     return (
@@ -79,7 +93,7 @@ export const TechnologiesProvider = ({ children }) => {
             setIsModal, submitRegistration, isLoading,
             isMessage, isEditModal, setIsEditModal,
             clickedCard, setClickedCard, handleCardClick,
-            getCurrentTechNameById, submitEdit
+            getCurrentTechNameById, submitEdit, handleRemoveButton
         }}>
 
             {children}

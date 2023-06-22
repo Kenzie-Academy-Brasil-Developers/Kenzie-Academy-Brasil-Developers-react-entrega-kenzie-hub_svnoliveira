@@ -16,11 +16,12 @@ export const TechnologyEditForm = () => {
         resolver: zodResolver(formSchemaTechEdit)
     })
 
-    const { submitEdit, isLoading, getCurrentTechNameById, clickedCard } = useContext(TechnologiesContext)
+    const { submitEdit, isLoading, getCurrentTechNameById, 
+        clickedCard, handleRemoveButton } = useContext(TechnologiesContext)
 
     return (
         <>
-         {isLoading ? <Loading /> :
+            {isLoading ? <Loading /> :
                 <StyledForm onSubmit={handleSubmit(submitEdit)} noValidate>
 
                     <Input register={register} errors={errors} label="Nome" saveTag="title"
@@ -28,8 +29,12 @@ export const TechnologyEditForm = () => {
 
                     <SelectStatus register={register} errors={errors} />
 
-                    <Button color={isObjEmpty(errors) ? "primary" : "disabled"}
-                        type="submit">Cadastrar Tecnologia</Button>
+                    <div>
+                        <Button color={isObjEmpty(errors) ? "primary" : "disabled"}
+                            type="submit">Salvar Alterações</Button>
+                        <Button type="button" color="grey" onClick={handleRemoveButton}>Excluir</Button>
+
+                    </div>
 
                 </StyledForm>}
         </>

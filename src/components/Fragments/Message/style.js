@@ -60,7 +60,8 @@ export const StyledMessage = styled.div`
         if(message === "Conta criada com sucesso!"  || 
         message === "Login feito com sucesso"       ||
         message === "Tecnologia cadastrada"         ||
-        message === "Status modificado"){
+        message === "Status modificado"             ||
+        message === "Excluído com sucesso"){
             return css`
 
             img {
