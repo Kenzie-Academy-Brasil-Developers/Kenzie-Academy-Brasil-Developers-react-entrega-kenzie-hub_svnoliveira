@@ -10,6 +10,7 @@ export const RoutesMain = () => {
    return (
       <Routes>
          <Route element={<PublicRoutes />}>
+            <Route path="/" element={<LoginPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
          </Route>
