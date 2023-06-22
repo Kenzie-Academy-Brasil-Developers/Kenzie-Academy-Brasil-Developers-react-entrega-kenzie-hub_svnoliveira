@@ -7,27 +7,30 @@ export const UserContext = createContext({})
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
+    const [loadingPage, setLoadingPage] =useState(false)
     const [isMessage, setIsMessage] = useState("")
     const [technologyList, setTechnologyList] = useState([])
 
     const navigate = useNavigate()
     const token = JSON.parse(localStorage.getItem('@TOKEN'))
 
+    const currentPath = window.location.pathname
 
-    useEffect(()=> {
-        const routeProtection = async () => {
-            if (token){
-                setIsLoading(true)
-                const loggedUser = await getLoggedUser(token)
-                const newList = await getTechnologiesByID(loggedUser.id)
-                setIsLoading(false)
-                setTechnologyList(newList)
-                setUser(loggedUser)
-                // console.log(user)
-            }
+    useEffect(() => {
+        const loadUser = async () => {
+
+            setLoadingPage(true)
+            const loggedUser = await getLoggedUser(token)
+            const newList = await getTechnologiesByID(loggedUser.id)
+            setLoadingPage(false)
+            setTechnologyList(newList)
+            setUser(loggedUser)
+            navigate(currentPath)
+            console.log(user)
         }
-        routeProtection()
-    },[])
+
+        if (token) { loadUser() }
+    }, [])
 
     //register
 
@@ -71,7 +74,7 @@ export const UserProvider = ({children}) => {
     return(
         <UserContext.Provider value={{ user, setUser, token, isLoading, 
         setIsLoading, isMessage, setIsMessage, submitLogin, handleLogout, 
-        submitRegistration, navigate, technologyList, setTechnologyList }}>
+        submitRegistration, navigate, technologyList, setTechnologyList, loadingPage }}>
             {children}
         </UserContext.Provider>
     )
