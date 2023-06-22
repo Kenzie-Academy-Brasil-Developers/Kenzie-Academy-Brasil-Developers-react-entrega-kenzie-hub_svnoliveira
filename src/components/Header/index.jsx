@@ -2,8 +2,13 @@ import { DashboardCard } from "../../globalStyles/Cards/DashboardCard"
 import { StyledHeaderContainer } from "./style"
 import { Title1 } from "../../globalStyles/Typography/Title1"
 import { HeadlineBold } from "../../globalStyles/Typography/HeadlineBold"
+import { useContext } from "react"
+import { UserContext } from "../../providers/UsersContext"
 
-export const Header = ({ user }) => {
+export const Header = () => {
+
+    const { user } = useContext(UserContext)
+
 
     return (
         <header>
