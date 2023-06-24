@@ -1,4 +1,4 @@
-import { css, styled } from "styled-components";
+import { css, styled } from "styled-components"
 
 export const StyledNavContainer = styled.div`
     display: flex;

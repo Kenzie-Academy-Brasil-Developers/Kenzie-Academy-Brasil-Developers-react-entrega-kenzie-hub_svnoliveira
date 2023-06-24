@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod"
 
 export const formSchemaLogin = z.object({
     email: z.string().min(3, "O email é obrigatório")

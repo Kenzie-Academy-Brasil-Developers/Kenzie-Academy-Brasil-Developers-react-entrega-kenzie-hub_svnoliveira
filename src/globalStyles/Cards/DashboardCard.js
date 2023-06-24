@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from "styled-components"
 
 export const DashboardCard = styled.div`
     min-height: 11.8rem;

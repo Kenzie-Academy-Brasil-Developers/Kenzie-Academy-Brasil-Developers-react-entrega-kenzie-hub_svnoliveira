@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from "styled-components"
 
 export const StyledTechSection = styled.section`
     width: clamp(8rem, 100%, 77.5rem);

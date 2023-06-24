@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from "styled-components"
 
 export const StyledInputContainer = styled.div`
     position: relative;
@@ -39,7 +39,7 @@ export const StyledInputContainer = styled.div`
         position: absolute;
         bottom: 3%;
         left: 0;
-        color: var(--color-grey-1);
+        color: var(--color-negative);
         z-index: 5;
         font: 400 1.05rem/1.05rem "Inter", sans-serif;
     }

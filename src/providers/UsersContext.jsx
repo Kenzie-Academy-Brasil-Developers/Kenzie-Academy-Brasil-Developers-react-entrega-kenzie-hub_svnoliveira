@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { atemptLogin, atemptRegistration, getLoggedUser, getTechnologiesByID } from "../services/requests";
+import { createContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { atemptLogin, atemptRegistration, getLoggedUser, getTechnologiesByID } from "../services/requests"
 
 export const UserContext = createContext({})
 

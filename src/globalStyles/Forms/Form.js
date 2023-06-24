@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from "styled-components"
 
 export const StyledForm = styled.form`
     min-height: 50rem;
@@ -18,9 +18,5 @@ export const StyledForm = styled.form`
     span {
         color: var(--color-grey-1);
         align-self: center;
-    }
-
-    p {
-        color: var(--color-negative);
     }
 `

@@ -27,7 +27,7 @@ a {
 body {
 	background-color: var(--color-grey-4);
 	color: var(--color-grey-0);
-	margin-top: 5.7rem;
+	margin-top: 5.7rem
 }
 
 nav, main, header {

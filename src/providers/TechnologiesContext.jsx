@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react"
 import { UserContext } from "../providers/UsersContext"
-import { atemptTechEdit, atemptTechRegistration, atemptTechRemoval } from "../services/requests";
+import { atemptTechEdit, atemptTechRegistration, atemptTechRemoval } from "../services/requests"
 
 export const TechnologiesContext = createContext({})
 

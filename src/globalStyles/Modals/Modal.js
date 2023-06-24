@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { alignJustifyCenter } from "../../globalStyles/GlobalStyles";
+import { styled } from "styled-components"
+import { alignJustifyCenter } from "../../globalStyles/GlobalStyles"
 
 export const ModalController = styled.div`
     ${alignJustifyCenter}
