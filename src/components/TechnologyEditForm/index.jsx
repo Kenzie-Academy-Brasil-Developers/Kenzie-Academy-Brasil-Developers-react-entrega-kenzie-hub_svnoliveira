@@ -24,7 +24,7 @@ export const TechnologyEditForm = () => {
             {isLoading ? <Loading /> :
                 <StyledForm onSubmit={handleSubmit(submitEdit)} noValidate>
 
-                    <Input register={register} errors={errors} label="Nome" saveTag="title" readonly
+                    <Input register={register} errors={errors} label="Nome" saveTag="title" disabled
                         type="text" id="tech-register-name" value={getCurrentTechNameById(clickedCard)} />
 
                     <SelectStatus register={register} errors={errors} />
